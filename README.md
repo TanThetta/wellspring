@@ -1,4 +1,5 @@
-
+WellSpring is a mental health companion web that is designed for
+everyone seeking better emotional wellbeing
 
 1. Install dependencies:
    `npm install`
