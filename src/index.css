@@ -1,0 +1,354 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #000000;
+  }
+
+  .dark body,
+  html.dark body,
+  .dark {
+    color: #ffffff;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Custom scrollbar for the professional text box */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes fallPetal {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(105vh) translateX(50px) rotate(360deg);
+    opacity: 0.1;
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(24px, -14px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-28px, 12px);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(16px, 10px);
+  }
+}
+
+@keyframes moonFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(1.2deg);
+  }
+}
+
+@keyframes cloudDriftA {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(45px) translateY(-8px);
+  }
+}
+
+@keyframes cloudDriftB {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(-55px) translateY(10px);
+  }
+}
+
+@keyframes cloudDriftC {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(30px) translateY(-12px);
+  }
+}
+
+@keyframes cloudTraverse {
+  0% {
+    transform: translateX(-35vw);
+  }
+  100% {
+    transform: translateX(115vw);
+  }
+}
+
+.animate-moon-float {
+  animation: moonFloat 8s ease-in-out infinite;
+}
+
+.animate-cloud-a {
+  animation: cloudDriftA 16s ease-in-out infinite;
+}
+
+.animate-cloud-b {
+  animation: cloudDriftB 22s ease-in-out infinite;
+}
+
+.animate-cloud-c {
+  animation: cloudDriftC 28s ease-in-out infinite;
+}
+
+.animate-cloud-traverse {
+  animation: cloudTraverse 65s linear infinite;
+}
+
+.animate-cloud-traverse-slow {
+  animation: cloudTraverse 90s linear infinite -30s;
+}
+
+@keyframes twinkleStar {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9));
+  }
+}
+
+@keyframes moonGlowPulse {
+  0% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.5));
+  }
+  100% {
+    transform: translateY(-6px) scale(1.04);
+    filter: drop-shadow(0 0 24px rgba(255, 215, 0, 0.85));
+  }
+}
+
+@keyframes breatheCycle {
+  0%, 100% { transform: scale(0.85); }
+  50% { transform: scale(1.22); }
+}
+
+@keyframes micPulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.animate-fall {
+  animation: fallPetal 10s linear infinite;
+}
+
+.animate-moon {
+  animation: moonGlowPulse 3s ease-in-out infinite alternate;
+}
+
+.animate-breathe {
+  animation: breatheCycle 8s infinite ease-in-out;
+}
+
+.animate-mic-pulse {
+  animation: micPulse 1.4s infinite;
+}
+
+@keyframes springRipple {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes springWave {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-25px) translateY(-8px);
+  }
+}
+
+@keyframes springWaveReverse {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(25px) translateY(-5px);
+  }
+}
+
+.animate-spring-ripple-1 {
+  animation: springRipple 8s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+.animate-spring-ripple-2 {
+  animation: springRipple 8s cubic-bezier(0.2, 0.8, 0.4, 1) infinite 2.5s;
+}
+
+.animate-spring-ripple-3 {
+  animation: springRipple 8s cubic-bezier(0.2, 0.8, 0.4, 1) infinite 5s;
+}
+
+.animate-spring-wave {
+  animation: springWave 12s ease-in-out infinite;
+}
+
+.animate-spring-wave-reverse {
+  animation: springWaveReverse 15s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 14s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 18s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 16s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkleStar 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes rainFall {
+  0% {
+    transform: translateY(-50px) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(105vh) translateX(-25px);
+    opacity: 0.2;
+  }
+}
+
+@keyframes leafFall {
+  0% {
+    transform: translateY(-40px) translateX(0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(50vh) translateX(50px) rotate(190deg) scale(1.05);
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(108vh) translateX(-40px) rotate(380deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(105vh) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(50vh) translateX(30px) scale(1.05);
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(-30px) translateX(-20px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.animate-rain {
+  animation: rainFall linear infinite;
+}
+
+.animate-leaf {
+  animation: leafFall ease-in-out infinite;
+}
+
+.animate-bubble {
+  animation: bubbleFloat ease-in-out infinite;
+}
+
+/* Diary lined paper pattern */
+.diary-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    rgba(32, 73, 114, 0.08) 31px,
+    rgba(32, 73, 114, 0.08) 32px
+  );
+  line-height: 32px;
+}
+
+.dark .diary-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    rgba(186, 230, 253, 0.07) 31px,
+    rgba(186, 230, 253, 0.07) 32px
+  );
+  line-height: 32px;
+}
+

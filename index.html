@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wellspring - Wellness & Motivation AI Companion</title>
+    <meta name="description" content="A mindful wellness companion featuring authentic real-time Gemini AI chat, guided zen breathing, mood reflection, and daily wellness tracking." />
+    <meta property="og:title" content="Wellspring - Wellness & Motivation AI Companion" />
+    <meta property="og:description" content="A mindful wellness companion featuring authentic real-time Gemini AI chat, guided zen breathing, mood reflection, and daily wellness tracking." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      // Seamless Live Server & static server support
+      // If opened directly with VS Code "Go Live" (port 5500 or 5501) or file://, redirect to compiled dist/
+      (function() {
+        var isLiveServer = window.location.port === '5500' || window.location.port === '5501' || window.location.protocol === 'file:';
+        if (isLiveServer && !window.location.pathname.includes('/dist/')) {
+          window.location.replace('./dist/index.html');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

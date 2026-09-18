@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account details and profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique identifier of the user matching Firebase Auth UID" },
+        "name": { "type": "string", "description": "Display name of the user", "maxLength": 100 },
+        "email": { "type": "string", "description": "Unique user email address", "maxLength": 150 },
+        "age": { "type": "string", "description": "User age or age range", "maxLength": 10 },
+        "createdAt": { "type": "string", "description": "ISO timestamp when account was created" },
+        "lastLogin": { "type": "string", "description": "ISO timestamp of last sign in" }
+      },
+      "required": ["uid", "name", "email", "createdAt"]
+    },
+    "DiaryEntry": {
+      "title": "Mood Diary Entry",
+      "description": "Daily journal thoughts, mood state, and personal reflections",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the diary entry" },
+        "userId": { "type": "string", "description": "UID of the user who authored this entry" },
+        "userName": { "type": "string", "description": "Name of the author", "maxLength": 100 },
+        "date": { "type": "string", "description": "Calendar date of the entry" },
+        "mood": { "type": "string", "description": "Mood rating: happy, anxiety, sad, or cry" },
+        "text": { "type": "string", "description": "User written reflection and thoughts", "maxLength": 5000 },
+        "tags": { "type": "string", "description": "Optional comma-separated or space-separated tags", "maxLength": 200 },
+        "createdAt": { "type": "string", "description": "ISO timestamp of creation" }
+      },
+      "required": ["id", "userId", "date", "mood", "text"]
+    },
+    "ChatMessage": {
+      "title": "AI Chat Message",
+      "description": "Conversational messages between user and Wellspring AI Companion",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique message identifier" },
+        "userId": { "type": "string", "description": "UID of the user participating in chat" },
+        "role": { "type": "string", "description": "Role of the sender: user or model" },
+        "text": { "type": "string", "description": "Message textual content", "maxLength": 10000 },
+        "timestamp": { "type": "string", "description": "Display time string" },
+        "createdAt": { "type": "string", "description": "ISO timestamp of message" }
+      },
+      "required": ["id", "userId", "role", "text"]
+    },
+    "AssessmentRecord": {
+      "title": "Mental Wellness Assessment Record",
+      "description": "User response score and outcome from the 10-question mental assessment",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique assessment log ID" },
+        "userId": { "type": "string", "description": "UID of the user who took assessment" },
+        "score": { "type": "number", "description": "Total score from 0 to 30" },
+        "status": { "type": "string", "description": "Wellness classification label" },
+        "summary": { "type": "string", "description": "Personalized assessment guidance summary", "maxLength": 2000 },
+        "createdAt": { "type": "string", "description": "ISO timestamp of completion" }
+      },
+      "required": ["id", "userId", "score", "status", "summary"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores user profiles keyed by their Firebase Auth UID"
+    },
+    "/diaries/{diaryId}": {
+      "schema": "DiaryEntry",
+      "description": "Stores all mood journal entries created by users"
+    },
+    "/chat_messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Stores chat messages for AI companion conversations"
+    },
+    "/assessments/{assessmentId}": {
+      "schema": "AssessmentRecord",
+      "description": "Stores mental wellness assessment results"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Wellspring - Wellness & Motivation AI Companion",
+  "description": "A mindful wellness companion featuring authentic real-time Gemini AI chat, guided zen breathing, mood reflection, and daily wellness tracking.",
+  "requestFramePermissions": ["microphone", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
